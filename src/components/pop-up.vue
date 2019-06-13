@@ -70,15 +70,11 @@ export default {
     height: 650px;
     width: 850px;
     background:rgba(48, 48, 48, 0.8);
-    cursor:pointer;
     color:#14396a;
   }
   .containerShow {
     height: 70px;
     width: 850px;
-  }
-  .btn-look {
-    box-shadow:inset 0px 0px 0px 1px #bee2f9;
   }
   p {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -121,15 +117,15 @@ export default {
     position: relative;
     left: 50%;
     transform: translate(-50%,0%);
+    outline: none;
   }
-  button {
-    padding: 10px;
-    border-radius: 20px;
+  .btn:hover {
     cursor: pointer;
-    margin: 10px 0px;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-family: sans-serif;
+    box-shadow: 0px 0px 0px 1px #b5b8b9;
+  }
+  .btn:active {
+    background: rgba(90, 90, 90, 0.4);
+    box-shadow: 0px 0px 0px 2px #c0c5c8;
   }
   input {
     height: 30px;

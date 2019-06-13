@@ -44,8 +44,8 @@ import axios from 'axios';
 //import path from 'path';
 //const port = process.env.port;
 // import sgMail from '@sendgrid/mail';
-//const url = 'http://localhost:5555/api/emails';
-const url = 'https://fewclicks-backend.herokuapp.com/api/emails';
+const url = '/api/emails';
+//const url = 'https://fewclicks-backend.herokuapp.com/api/emails';
 
 
 export default {
@@ -54,6 +54,9 @@ export default {
     popup
   },
   methods: {
+    sendEmail1:function(){
+
+    },
     scrollPage:function(i){
       this.current = i;
       switch (i) {
@@ -81,6 +84,10 @@ export default {
         text: emailBody,
         from: emailFrom
       })
+      .then(res => {
+        this.response = res;
+        //console.log(`we got response from serverr ${res.status}`);
+      })
     }
   },
   data() {
@@ -90,7 +97,8 @@ export default {
       links:['Home','Why FewClicks', 'Video', 'Contact Us'],
       eTo: '',
       eFrom: '',
-      eBody: ''
+      eBody: '',
+      response: ''
     }
   }
 }
