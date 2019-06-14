@@ -1,10 +1,9 @@
 <template>
-  <div class="container" v-bind:class="{ containerShow: !displayForm }">
-    <!-- <div class="slide-up" @click="handler()">
-      <img class="slide-up-first" src="../assets/up-chevron.svg" alt="" v-bind:class="{ invisible: !show }">
-      <img class="slide-up-second" src="../assets/up-chevron.svg" alt="" v-bind:class="{ invisible: !show }">
-    </div> -->
-    
+
+  <div class="container" v-bind:class="{ containerShow: !displayForm }"> 
+    <div class="email-sent" v-bind:class="{ hide: !emailIsSent }">
+      <h2>Email Sent Succsessfully</h2>
+    </div>
     <form action="" v-bind:class="{ formShow: displayForm }" id="contact-form" @submit="sendEmail">
       <input type="email" name="email" id="email-to" placeholder="To" v-model="emailTo">
       <input type="email" name="email" id="email-from" placeholder="From" v-model="emailFrom">
@@ -19,8 +18,6 @@
       </div>
       <p class="copyright">Copyright © FewClicks 2019</p>
     </div>
-    
-    
   </div>
 </template>
 
@@ -33,7 +30,8 @@ export default {
       show: false,
       emailTo: 'fewclicks.app@gmail.com',
       emailFrom: '',
-      emailBody: ''
+      emailBody: '',
+      emailIsSent: false
     }
   },
   props: {
@@ -47,10 +45,13 @@ export default {
       this.$emit('hide-field', this.show);
     },
     handler:function() {
-      this.showForm();
       this.hideParentFields();
     },
     sendEmail(e){
+      this.emailIsSent = true;
+      setTimeout(() => {
+        this.emailIsSent = false;
+      }, 3000);
       e.preventDefault();
       const newEmail = {
         emailTo: this.emailTo,
@@ -173,5 +174,12 @@ export default {
     position: absolute;
     top: 10px;
     width: 100%;
+  }
+  .email-sent {
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%, 0%);
+    color: rgb(13, 197, 13);
   }
 </style>

@@ -44,8 +44,8 @@ import axios from 'axios';
 //import path from 'path';
 //const port = process.env.port;
 // import sgMail from '@sendgrid/mail';
-const url = '/api/emails';
-//const url = 'https://fewclicks-backend.herokuapp.com/api/emails';
+//const url = '/api/emails';
+const url = 'https://fewclicks-backend.herokuapp.com/api/emails';
 
 
 export default {
@@ -79,8 +79,8 @@ export default {
       const{emailTo, emailFrom, emailBody} = newEmail;
       axios.post( url, {
         emailTo: emailTo,
-        toname: 'its important',
-        subject: 'first maile',
+        toname: emailTo,
+        subject: 'Few Clicks',
         text: emailBody,
         from: emailFrom
       })
