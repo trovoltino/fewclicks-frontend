@@ -5,8 +5,8 @@
       <h2>Email Sent Succsessfully</h2>
     </div>
     <form action="" v-bind:class="{ formShow: displayForm }" id="contact-form" @submit="sendEmail">
-      <input type="email" name="email" id="email-to" placeholder="To" v-model="emailTo">
-      <input type="email" name="email" id="email-from" placeholder="From" v-model="emailFrom">
+      <div type="email" name="email" id="email-to" placeholder="To">fewclicks.app@gmail.com</div>
+      <input type="email" name="email" id="email-from" placeholder="Your Email" v-model="emailFrom">
       <textarea name="message" rows="10" cols="30" v-model="emailBody" placeholder="Send Us Your message here."></textarea>
       <input type="submit" value="Submit" class="btn">
     </form>
@@ -67,6 +67,116 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.container{
+  width: 100%;
+  background:rgba(48, 48, 48, 0.8);
+}
+.containerShow {
+  height: 400px;
+  width: 100%;
+}
+p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  margin: 4px;
+}
+.slide-up-first {
+    margin-top: 10px;
+    margin-bottom: -25px;
+}
+.slide-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+}
+form {
+  transition: width, height, 0.4s;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+form input, form textarea, form div{
+  color: white;
+  box-shadow:inset 0px 0px 0px 1px #bee2f9;
+  border:1px solid #b4b4b4;
+  border-radius: 10px;
+  background: transparent;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%,0%);
+  outline: none;
+}
+form div{
+  padding: 7px;
+  margin: 10px 0px;
+}
+.hide {
+  display: none;
+}
+.invisible {
+  visibility: hidden;
+}
+.formShow {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+input {
+  height: 30px;
+  text-align: center;
+  margin: 10px 0px;
+}
+textarea {
+  margin: 10px 0px;
+}
+.red {
+  color: red;
+}
+.footer-box {
+  display: flex;
+  align-items: center;
+}
+.footer-left {
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px 30px;
+  display: none;
+}
+.copyright {
+  position: absolute;
+  right: 30px;
+  margin-top: 45px;
+}
+.underline {
+  border: solid white 1px;
+  width: 210px;
+}
+.positionTop {
+  z-index: 100;
+  top: 10px;
+  width: 100%;
+}
+.email-sent {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%, 0%);
+  color: rgb(13, 197, 13);
+}
+#email-to {
+  text-align: center;
+}
+@media (min-width: 700px) {
   .container {
     height: 650px;
     width: 850px;
@@ -74,31 +184,23 @@ export default {
     color:#14396a;
   }
   .containerShow {
-    height: 70px;
     width: 850px;
-  }
-  p {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-align: center;
-    font-size: 16px;
-    color: white;
-    z-index: -1;
-    margin: 4px;
-  }
-  .slide-up-first, .slide-up-second{
-    height: 40px;
-    color:white;
-    transform: rotateX(180deg);
+    height: 70px;
   }
   .slide-up-first {
     margin-top: 10px;
     margin-bottom: -25px;
   }
   .slide-up {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-bottom: 10px;
+  }
+  .slide-up-first, .slide-up-second{
+      height: 40px;
+      color:white;
+      transform: rotateX(180deg);
   }
   form {
     display: none;
@@ -109,7 +211,7 @@ export default {
     transform: translate(-50%,-50%);
     width: 70%;
   }
-  form input, form textarea{
+  form input, form textarea, form div{
     color: white;
     box-shadow:inset 0px 0px 0px 1px #bee2f9;
     border:1px solid #b4b4b4;
@@ -119,6 +221,10 @@ export default {
     left: 50%;
     transform: translate(-50%,0%);
     outline: none;
+  }
+  form div{
+    padding: 7px;
+    margin: 10px 0px;
   }
   .btn:hover {
     cursor: pointer;
@@ -165,6 +271,7 @@ export default {
   .copyright {
     position: absolute;
     right: 30px;
+    margin-top: 0px;
   }
   .underline {
     border: solid white 1px;
@@ -182,4 +289,6 @@ export default {
     transform: translate(-50%, 0%);
     color: rgb(13, 197, 13);
   }
+}
+
 </style>

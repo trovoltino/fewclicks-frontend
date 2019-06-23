@@ -8,32 +8,38 @@
         </ul>
       </nav>
       <main class="main-content" v-bind:class="{ hide: show }">
-        <video autoplay muted loop id="myVideo">
-          <source src="./assets/few-clicks-video.mp4" type="video/mp4">
-        </video>
+        <div class="video-wraper">
+          <video autoplay muted loop id="myVideo">
+            <source src="./assets/few-clicks-video.mp4" type="video/mp4">
+          </video>
+        </div>
         <h3 class="info">Making booklets and catalogs have never been easier!</h3>
       </main>
-      <popup class="footer" v-on:send-email = "sendEmail" :displayForm="show"/>
+      
     </div>
     <div class="page-two">
       <main class="main-content" v-bind:class="{ hide: show }">
         <aside class="left">
           <h3>Без автоматизации</h3>
-          <p>Время создания зависит от опыта дизайнера</p>
-          <p>Ошибка стоимости продукта Ошибка в орфографии</p>
-          <p>Недостаток времени на обновление дизайна</p>
-          <p>Проверка наличия фотографии продукта Ручной ввод всей информации о продукте</p>
-          <p>{{eBody}} was send by {{eFrom}} to user {{eTo}}</p>
+          <ul>
+            <li>Время создания зависит от опыта дизайнера</li>
+            <li>Ошибка стоимости продукта Ошибка в орфографии</li>
+            <li>Недостаток времени на обновление дизайна</li>
+            <li>Проверка наличия фотографии продукта Ручной ввод всей информации о продукте</li>
+          </ul>
         </aside>
         <aside class="right">
           <h3>FewClics</h3>
-          <p>Сокрощение срока создания до 4 раз</p>
-          <p>Минимальное количество ошибок</p>
-          <p>Время на креатив</p>
-          <p>Автоматический поиск изображений Информационная база продукции</p>
+          <ul>
+            <li>Сокрощение срока создания до 4 раз</li>
+            <li>Минимальное количество ошибок</li>
+            <li>Время на креатив</li>
+            <li>Автоматический поиск изображений Информационная база продукции</li>
+          </ul>
         </aside>
       </main>
     </div>
+    <popup class="footer" v-on:send-email = "sendEmail" :displayForm="show"/>
   </div>
 </template>
 
@@ -105,119 +111,185 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #f6f6f6;
-  height: 100vh;
+body {
   background: rgb(34, 29, 29);
-  margin: 0% 6%;  
 }
-body{
-  margin: 0px;
-  padding: 0px;
-  background: gray;
-}
-a {
-  color: rgb(224, 224, 224);
-  text-decoration: none;
-}
-.footer {
-  position: fixed;
-  bottom: 0%;
-  left: 50%;
-  transform: translate(-50%,0%);
-}
-.page-one {
-  height: 100vh;
-}
-.main-nav {
-  position: fixed;
-  display: flex;
-  justify-content: space-between;
-  min-width: 88%;
-  align-items: flex-end;
-  z-index: 100;
-}
-.nav-bar {
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-right: 10%;
-}
-.main-nav ul a{
-  margin: 20px 10px;
-  cursor: pointer;
-}
-.current {
-  text-decoration: underline;
-  color: white;
+#app {
+  position: relative;
+  color: #f6f6f6;
+  background: rgb(34, 29, 29);
 }
 .title-logo{
-  height: 180px;
-  background: transparent;
-  margin-left: 10%;
+  position: relative;
+  width: 300px;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }
 .page-one .main-content {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform:translate(-50%, -50%);
-  width: 80%;
-  display: flex;
-  align-items: center;
-  padding-left: 2%;
+  margin: 0px;
+  padding: 0px;
+}
+.info{
+  text-align: center;
 }
 #myVideo {
-  width: 600px;
-  height: 400px;
-  
+  position: relative;
+ 
+  transform: scale(1.4, 1.4);
+  width: 100%;
 }
-.info {
-  text-transform: uppercase;
-  font-size: 56px;
-  margin-left: -10%;
-  z-index: 10;
-  text-align: start;
-  width: 600px;
-  min-width: 400px;
-}
-.hide{
-  visibility: hidden;
-}
-.page-two {
-  background: rgb(34, 29, 29);
-  height: 100vh;
-}
-.page-two .main-content {
-  width: 790px;
-  display: flex;
+.video-wraper{
+  width:360px;
+  overflow: hidden;
   position: relative;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0px;
-
+  transform: translate(-50%, 0%);
 }
-.left {
-  border-right: 1px solid white;
-  padding-right: 35px;
+.nav-bar{
+  display: none;
 }
-.right {
-  border-left: 1px solid white;
-  padding-left: 35px;
+.page-two .main-content {
+  text-align: center;
 }
-.left p, .left h3 {
-  text-align: end;
-  width: 395px;
-  height: 40px;
-}
-.right p, .right h3 {
+.left ul, .right ul{
   text-align: left;
-  width: 395px;
-  height: 40px;
+}
+.footer {
+  margin-top: 40px;
+}
+uk {
+  padding: 0px;
+}
+@media (min-width: 700px) {
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #f6f6f6;
+    height: 100vh;
+    background: rgb(34, 29, 29);
+    margin: 0% 6%;  
+  }
+  body{
+    margin: 0px;
+    padding: 0px;
+    background: gray;
+  }
+  a {
+    color: rgb(224, 224, 224);
+    text-decoration: none;
+  }
+  .footer {
+    position: fixed;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%,0%);
+  }
+  .page-one {
+    height: 100vh;
+  }
+  .main-nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    min-width: 88%;
+    align-items: flex-end;
+    z-index: 100;
+  }
+  .nav-bar {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-right: 10%;
+  }
+  .main-nav ul a{
+    margin: 20px 10px;
+    cursor: pointer;
+  }
+  .current {
+    text-decoration: underline;
+    color: white;
+  }
+  .title-logo{
+    position: relative;
+    width: none;
+    left: 0%;
+    transform: translate(0%, 0%);
+    height: 180px;
+    background: transparent;
+    margin-left: 10%;
+  }
+  .page-one .main-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform:translate(-50%, -50%);
+    width: 80%;
+    display: flex;
+    align-items: center;
+    padding-left: 2%;
+  }
+  #myVideo {
+
+  }
+  .video-wraper{
+    min-width: 600px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    left: 30%;
+    transform: translate(-50%, 0%);
+  }
+  .info {
+    text-transform: uppercase;
+    font-size: 56px;
+    margin-left: -10%;
+    z-index: 10;
+    text-align: start;
+    width: 600px;
+    min-width: 400px;
+  }
+  .hide{
+    visibility: hidden;
+  }
+  .page-two {
+    background: rgb(34, 29, 29);
+    height: 100vh;
+  }
+  .page-two .main-content {
+    width: 790px;
+    display: flex;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0px;
+
+  }
+  .left {
+    border-right: 1px solid white;
+    padding-right: 35px;
+  }
+  .right {
+    border-left: 1px solid white;
+    padding-left: 35px;
+  }
+  .left li, .left h3 {
+    text-align: end;
+    width: 395px;
+    height: 40px;
+    list-style: none;
+  }
+  .right li, .right h3 {
+    text-align: left;
+    width: 395px;
+    height: 40px;
+    list-style: none;
+  } 
+  ul {
+    padding: 0px;
+  }
 }
 </style>
