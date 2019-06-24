@@ -183,7 +183,7 @@ textarea {
     transform: translate(-50%, 0%);
     color: rgb(13, 197, 13);
   }
-@media (min-width: 700px) {
+@media (min-width: 800px) {
   .container {
     height: 650px;
     width: 850px;

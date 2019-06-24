@@ -111,69 +111,74 @@ export default {
 </script>
 
 <style>
-body {
+  body {
   background: rgb(34, 29, 29);
-}
-#app {
-  position: relative;
-  color: #f6f6f6;
-  background: rgb(34, 29, 29);
-}
-.title-logo{
-  position: relative;
-  width: 300px;
-  left: 50%;
-  transform: translate(-50%, 0%);
-}
-.page-one .main-content {
   margin: 0px;
   padding: 0px;
-}
-.info{
-  text-align: center;
-}
-#myVideo {
-  position: relative;
- 
-  transform: scale(1.4, 1.4);
-  width: 100%;
-}
-.video-wraper{
-  width:360px;
-  overflow: hidden;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, 0%);
-}
-.nav-bar{
-  display: none;
-}
-.page-two .main-content {
-  text-align: center;
-}
-.left ul, .right ul{
-  text-align: left;
-}
-.footer {
-  margin-top: 40px;
-}
-uk {
-  padding: 0px;
-}
-@media (min-width: 700px) {
+  }
   #app {
+    position: relative;
+    color: #f6f6f6;
+    background: rgb(34, 29, 29);
+    height: 100vh;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  .title-logo{
+    position: relative;
+    width: 300px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+  .page-one .main-content {
+    padding-bottom: 10px;
+    border-bottom: 1px solid grey;
+  }
+  .page-two .main-content {
     text-align: center;
-    color: #f6f6f6;
-    height: 100vh;
-    background: rgb(34, 29, 29);
-    margin: 0% 6%;  
+    padding: 30px 0px;
+    border-bottom: 1px solid grey;
+  }
+  .info{
+    text-align: center;
+    margin: 50px 0px;
+  }
+  #myVideo {
+    position: relative;
+    transform: scale(1.4, 1.4);
+    width: 100%;
+  }
+  .video-wraper{
+    min-width:350px;
+    max-width: 350px;
+    overflow: hidden;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+  .nav-bar{
+    display: none;
+  }
+  
+  .left ul, .right ul{
+    text-align: left;
+  }
+  .footer {
+    margin-top: 40px;
+  }
+  uk {
+    padding: 0px;
+  }
+  #contact-form {
+    margin-top: 55px;
+  }
+
+@media (min-width: 800px) {
+  #app {
+    text-align: center;
   }
   body{
-    margin: 0px;
-    padding: 0px;
     background: gray;
   }
   a {
@@ -193,7 +198,7 @@ uk {
     position: fixed;
     display: flex;
     justify-content: space-between;
-    min-width: 88%;
+    min-width: 100%;
     align-items: flex-end;
     z-index: 100;
   }
@@ -213,8 +218,7 @@ uk {
     color: white;
   }
   .title-logo{
-    position: relative;
-    width: none;
+    width: 340px;
     left: 0%;
     transform: translate(0%, 0%);
     height: 180px;
@@ -230,21 +234,31 @@ uk {
     display: flex;
     align-items: center;
     padding-left: 2%;
+    border-bottom: none;
   }
-  #myVideo {
-
+    .page-two .main-content {
+    width: 790px;
+    display: flex;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0px;
+    border-bottom: none;
   }
   .video-wraper{
-    min-width: 600px;
-    height: 400px;
-    overflow: hidden;
-    position: relative;
+    min-width: 500px;
+    height: 350px;
     left: 30%;
-    transform: translate(-50%, 0%);
+  }
+   #myVideo {
+    position: relative;
+    transform: scale(1.4, 1.4);
+    width: 100%;
   }
   .info {
     text-transform: uppercase;
-    font-size: 56px;
+    font-size: 46px;
     margin-left: -10%;
     z-index: 10;
     text-align: start;
@@ -258,16 +272,7 @@ uk {
     background: rgb(34, 29, 29);
     height: 100vh;
   }
-  .page-two .main-content {
-    width: 790px;
-    display: flex;
-    position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0px;
 
-  }
   .left {
     border-right: 1px solid white;
     padding-right: 35px;
@@ -290,6 +295,26 @@ uk {
   } 
   ul {
     padding: 0px;
+  }
+}
+
+@media (min-width: 1240px) {
+  .video-wraper {
+    min-width: 600px;
+    height: 400px;
+  }
+  .info {
+    font-size: 56px;
+  }
+}
+
+@media (min-width: 1382px) {
+  #app {
+    margin: 0% 6%;
+  }
+  .main-nav {
+    max-width: 88%;
+    min-width: 88%;
   }
 }
 </style>
