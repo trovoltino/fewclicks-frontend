@@ -51,7 +51,7 @@ export default {
       this.emailIsSent = true;
       setTimeout(() => {
         this.emailIsSent = false;
-      }, 3000);
+      }, 2000);
       e.preventDefault();
       const newEmail = {
         emailTo: this.emailTo,
@@ -176,6 +176,13 @@ textarea {
 #email-to {
   text-align: center;
 }
+.email-sent {
+    position: absolute;
+    left: 50%;
+    top: 66%;
+    transform: translate(-50%, 0%);
+    color: rgb(13, 197, 13);
+  }
 @media (min-width: 700px) {
   .container {
     height: 650px;
