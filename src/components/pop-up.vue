@@ -65,12 +65,13 @@ export default {
 
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss">
+
 .container{
   width: 100%;
-  background:rgba(48, 48, 48, 0.8);
+   background:rgba(48, 48, 48, 0.8);
 }
+
 .containerShow {
   height: 400px;
   width: 100%;
@@ -79,7 +80,7 @@ p {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   text-align: center;
   font-size: 16px;
-  color: white;
+  color: $text-main;
   margin: 4px;
 }
 .slide-up-first {
@@ -103,7 +104,7 @@ form {
   justify-content: flex-start;
 }
 form input, form textarea, form div{
-  color: white;
+  color: $text-main;
   box-shadow:inset 0px 0px 0px 1px #bee2f9;
   border:1px solid #b4b4b4;
   border-radius: 10px;
@@ -158,7 +159,7 @@ textarea {
   margin-top: 45px;
 }
 .underline {
-  border: solid white 1px;
+  border: solid $text-main 1px;
   width: 210px;
 }
 .positionTop {
@@ -183,12 +184,10 @@ textarea {
     transform: translate(-50%, 0%);
     color: rgb(13, 197, 13);
   }
-@media (min-width: 800px) {
+@media (min-width: 850px) {
   .container {
     height: 650px;
     width: 850px;
-    background:rgba(48, 48, 48, 0.8);
-    color:#14396a;
   }
   .containerShow {
     width: 850px;
@@ -206,20 +205,17 @@ textarea {
   }
   .slide-up-first, .slide-up-second{
       height: 40px;
-      color:white;
+      color:$text-main;
       transform: rotateX(180deg);
   }
   form {
     display: none;
     transition: width, height, 0.4s;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    @include center;
     width: 70%;
   }
   form input, form textarea, form div{
-    color: white;
+    color: $text-main;
     box-shadow:inset 0px 0px 0px 1px #bee2f9;
     border:1px solid #b4b4b4;
     border-radius: 10px;
@@ -239,7 +235,7 @@ textarea {
   }
   .btn:active {
     background: rgba(90, 90, 90, 0.4);
-    box-shadow: 0px 0px 0px 2px #c0c5c8;
+    box-shadow: 0px 0px 0px 2px #b5b8b9;
   }
   input {
     height: 30px;
@@ -281,7 +277,7 @@ textarea {
     margin-top: 0px;
   }
   .underline {
-    border: solid white 1px;
+    border: solid $text-main 1px;
     width: 210px;
   }
   .positionTop {

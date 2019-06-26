@@ -110,15 +110,15 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
   body {
-  background: rgb(34, 29, 29);
+  background: $base-color;
   margin: 0px;
   padding: 0px;
   }
   #app {
     position: relative;
-    color: #f6f6f6;
+    color: $text-main;
     background: rgb(34, 29, 29);
     height: 100vh;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -151,7 +151,8 @@ export default {
   }
   .video-wraper{
     min-width:350px;
-    max-width: 350px;
+    min-width: 22em;
+    max-width: 22em;
     overflow: hidden;
     position: relative;
     left: 50%;
@@ -165,24 +166,24 @@ export default {
     text-align: left;
   }
   .footer {
-    margin-top: 40px;
+    margin-top: 2.5em;
   }
   uk {
     padding: 0px;
   }
   #contact-form {
-    margin-top: 55px;
+    margin-top: 3.5em;
   }
 
-@media (min-width: 800px) {
+@media (min-width: 850px) {
+  body {
+    background: $secondary-color;
+  }
   #app {
     text-align: center;
   }
-  body{
-    background: gray;
-  }
   a {
-    color: rgb(224, 224, 224);
+    color: $text-main;
     text-decoration: none;
   }
   .footer {
@@ -210,12 +211,12 @@ export default {
     margin-right: 10%;
   }
   .main-nav ul a{
-    margin: 20px 10px;
+    margin: 1.3em 0.8em;
     cursor: pointer;
   }
   .current {
     text-decoration: underline;
-    color: white;
+    color: $text-main;
   }
   .title-logo{
     width: 340px;
@@ -226,10 +227,7 @@ export default {
     margin-left: 10%;
   }
   .page-one .main-content {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform:translate(-50%, -50%);
+    @include center;
     width: 80%;
     display: flex;
     align-items: center;
@@ -237,12 +235,9 @@ export default {
     border-bottom: none;
   }
     .page-two .main-content {
+    @include center;
     width: 790px;
     display: flex;
-    position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     margin: 0px;
     border-bottom: none;
   }
@@ -274,11 +269,11 @@ export default {
   }
 
   .left {
-    border-right: 1px solid white;
+    border-right: 1px solid $text-main;
     padding-right: 35px;
   }
   .right {
-    border-left: 1px solid white;
+    border-left: 1px solid $text-main;
     padding-left: 35px;
   }
   .left li, .left h3 {
