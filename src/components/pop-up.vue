@@ -69,9 +69,8 @@ export default {
 
 .container{
   width: 100%;
-   background:rgba(48, 48, 48, 0.8);
+  background:rgba(48, 48, 48, 0.8);
 }
-
 .containerShow {
   height: 400px;
   width: 100%;
@@ -94,7 +93,6 @@ p {
     padding-bottom: 10px;
 }
 form {
-  transition: width, height, 0.4s;
   position: relative;
   left: 50%;
   transform: translate(-50%, 0%);
@@ -197,37 +195,11 @@ textarea {
     margin-top: 10px;
     margin-bottom: -25px;
   }
-  .slide-up {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding-bottom: 10px;
-  }
-  .slide-up-first, .slide-up-second{
-      height: 40px;
-      color:$text-main;
-      transform: rotateX(180deg);
-  }
   form {
     display: none;
     transition: width, height, 0.4s;
     @include center;
     width: 70%;
-  }
-  form input, form textarea, form div{
-    color: $text-main;
-    box-shadow:inset 0px 0px 0px 1px #bee2f9;
-    border:1px solid #b4b4b4;
-    border-radius: 10px;
-    background: transparent;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%,0%);
-    outline: none;
-  }
-  form div{
-    padding: 7px;
-    margin: 10px 0px;
   }
   .btn:hover {
     cursor: pointer;
@@ -236,14 +208,6 @@ textarea {
   .btn:active {
     background: rgba(90, 90, 90, 0.4);
     box-shadow: 0px 0px 0px 2px #b5b8b9;
-  }
-  input {
-    height: 30px;
-    text-align: center;
-    margin: 10px 0px;
-  }
-  textarea {
-    margin: 10px 0px;
   }
   .formShow {
     display: flex;
@@ -259,38 +223,15 @@ textarea {
   .red {
     color: red;
   }
-  .footer-box {
-    display: flex;
-    align-items: center;
-  }
   .footer-left {
     height: 70px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 0px 30px;
   }
   .copyright {
-    position: absolute;
-    right: 30px;
     margin-top: 0px;
-  }
-  .underline {
-    border: solid $text-main 1px;
-    width: 210px;
   }
   .positionTop {
     position: absolute;
-    top: 10px;
-    width: 100%;
-  }
-  .email-sent {
-    position: absolute;
-    left: 50%;
-    top: 15%;
-    transform: translate(-50%, 0%);
-    color: rgb(13, 197, 13);
   }
 }
 

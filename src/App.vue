@@ -60,9 +60,6 @@ export default {
     popup
   },
   methods: {
-    sendEmail1:function(){
-
-    },
     scrollPage:function(i){
       this.current = i;
       switch (i) {
@@ -112,6 +109,7 @@ export default {
 
 <style lang="scss">
   body {
+  box-sizing: border-box;
   background: $base-color;
   margin: 0px;
   padding: 0px;
@@ -168,9 +166,6 @@ export default {
   .footer {
     margin-top: 2.5em;
   }
-  uk {
-    padding: 0px;
-  }
   #contact-form {
     margin-top: 3.5em;
   }
@@ -213,6 +208,7 @@ export default {
   .main-nav ul a{
     margin: 1.3em 0.8em;
     cursor: pointer;
+    white-space: nowrap;
   }
   .current {
     text-decoration: underline;
@@ -224,7 +220,7 @@ export default {
     transform: translate(0%, 0%);
     height: 180px;
     background: transparent;
-    margin-left: 10%;
+    margin-left: 3%;
   }
   .page-one .main-content {
     @include center;
@@ -253,7 +249,7 @@ export default {
   }
   .info {
     text-transform: uppercase;
-    font-size: 46px;
+    font-size: 4vw;
     margin-left: -10%;
     z-index: 10;
     text-align: start;
