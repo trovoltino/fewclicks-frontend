@@ -15,7 +15,6 @@
         </div>
         <h3 class="info">Making booklets and catalogs have never been easier!</h3>
       </main>
-      
     </div>
     <div class="page-two">
       <main class="main-content" v-bind:class="{ hide: show }">
@@ -47,12 +46,8 @@
 
 import popup from './components/pop-up.vue';
 import axios from 'axios';
-//import path from 'path';
-//const port = process.env.port;
-// import sgMail from '@sendgrid/mail';
-//const url = '/api/emails';
-const url = 'https://fewclicks-backend.herokuapp.com/api/emails';
-
+const url = 'api/emails'
+//const url = 'https://fewclicks-backend.herokuapp.com/api/emails';
 
 export default {
   name: 'app',
@@ -89,7 +84,6 @@ export default {
       })
       .then(res => {
         this.response = res;
-        //console.log(`we got response from serverr ${res.status}`);
       })
     }
   },

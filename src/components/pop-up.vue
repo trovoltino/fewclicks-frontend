@@ -1,13 +1,12 @@
 <template>
-
   <div class="container" v-bind:class="{ containerShow: !displayForm }"> 
     <div class="email-sent" v-bind:class="{ hide: !emailIsSent }">
       <h2>Email Sent Succsessfully</h2>
     </div>
     <form action="" v-bind:class="{ formShow: displayForm }" id="contact-form" @submit="sendEmail">
       <div type="email" name="email" id="email-to" placeholder="To">fewclicks.app@gmail.com</div>
-      <input type="email" name="email" id="email-from" placeholder="Your Email" v-model="emailFrom">
-      <textarea name="message" rows="10" cols="30" v-model="emailBody" placeholder="Send Us Your message here."></textarea>
+      <input v-bind:class="{ missingEmail: emailProvided }" type="email" name="email" id="email-from" placeholder="Your Email" v-model="emailFrom">
+      <textarea v-bind:class="{ missingEmail: emailProvided }" name="message" rows="10" cols="30" v-model="emailBody" placeholder="Send Us Your message here."></textarea>
       <input type="submit" value="Submit" class="btn">
     </form>
     <div class="footer-box" v-bind:class="{ positionTop: displayForm }">
@@ -31,7 +30,8 @@ export default {
       emailTo: 'fewclicks.app@gmail.com',
       emailFrom: '',
       emailBody: '',
-      emailIsSent: false
+      emailIsSent: false,
+      emailProvided: false
     }
   },
   props: {
@@ -48,21 +48,28 @@ export default {
       this.hideParentFields();
     },
     sendEmail(e){
-      this.emailIsSent = true;
-      setTimeout(() => {
-        this.emailIsSent = false;
-      }, 2000);
-      e.preventDefault();
-      const newEmail = {
-        emailTo: this.emailTo,
-        emailFrom: this.emailFrom,
-        emailBody: this.emailBody
+      if (this.emailFrom && this.emailBody) {
+        this.emailProvided = false;
+        this.emailIsSent = true;
+        setTimeout(() => {
+          this.emailIsSent = false;
+          this.emailBody = '';
+        }, 3000);
+        e.preventDefault();
+        const newEmail = {
+          emailTo: this.emailTo,
+          emailFrom: this.emailFrom,
+          emailBody: this.emailBody
+        }
+        this.$emit('send-email', newEmail);
+      } else {
+        e.preventDefault();
+        this.emailProvided = true;
       }
-      this.$emit('send-email', newEmail);
+      
     }
   }
 }
-
 </script>
 
 <style lang="scss">
@@ -168,20 +175,18 @@ textarea {
 .email-sent {
   position: absolute;
   left: 50%;
-  top: 15%;
+  top: 66%;
   transform: translate(-50%, 0%);
   color: rgb(13, 197, 13);
 }
 #email-to {
   text-align: center;
 }
-.email-sent {
-    position: absolute;
-    left: 50%;
-    top: 66%;
-    transform: translate(-50%, 0%);
-    color: rgb(13, 197, 13);
-  }
+.missingEmail::placeholder{
+  color:red;
+  opacity: 1;
+}
+
 @media (min-width: 850px) {
   .container {
     height: 650px;
